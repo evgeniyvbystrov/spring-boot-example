@@ -82,6 +82,6 @@
 		</plugins>
 	</build>
 	<!-- Make sure that you changed the packaging to war -->
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 </project>
