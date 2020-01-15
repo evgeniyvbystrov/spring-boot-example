@@ -1,25 +1,16 @@
-<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
-    <id>my-assembly-descriptor</id>
-    <formats>
-        <format>jar</format>
-        <format>war</format>
-    </formats>
+<assembly
+        xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+
     <fileSets>
         <fileSet>
-            <directory>git </directory>
-            <outputDirectory>${project.build.directory}</outputDirectory>
+            <directory>${project.basedir}/target</directory>
+            <outputDirectory>./</outputDirectory>
             <includes>
-                <include>*.sh</include>
+                <include>spring-boot-0.0.1-SNAPSHOT.jar</include>
             </includes>
-            <fileMode>0755</fileMode>
         </fileSet>
     </fileSets>
-    <dependencySets>
-        <dependencySet>
-            <excludes>
-                <exclude>spring-2.5.4.jar</exclude>
-            </excludes>
-        </dependencySet>
-    </dependencySets>
+
 </assembly>
