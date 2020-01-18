@@ -15,7 +15,6 @@
 	<name>spring-boot</name>
 
 	<description>Demo project for Spring Boot</description>
-
 	<packaging>jar</packaging>
 
 	<properties>
@@ -77,6 +76,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.20.1</version>
 				<configuration>
+					<dockerHost>${env.DOCKER_HOST}</dockerHost>
 					<images>
 						<image>
 							<name>byse/spring-boot-example</name>
@@ -117,6 +117,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
