@@ -8,32 +8,25 @@
 		<version>2.2.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>spring-boot</artifactId>
+
+	<groupId>com.byse</groupId>
+	<artifactId>spring-boot-example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot</name>
+
 	<description>Demo project for Spring Boot</description>
+
+	<packaging>jar</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<docker.image.prefix>byse</docker.image.prefix>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -86,7 +79,7 @@
 				<configuration>
 					<images>
 						<image>
-							<name>app</name>
+							<name>byse/spring-boot-example</name>
 							<build>
 								<dockerFileDir>${project.basedir}/src/main/docker</dockerFileDir>
 								<assembly>
@@ -100,17 +93,30 @@
 				</configuration>
 				<executions>
 					<execution>
-						<id>build</id>
-						<phase>install</phase>
+						<id>Build docker container</id>
+						<phase>package</phase>
 						<goals>
 							<goal>build</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>Push docker container</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>push</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>Run docker container</id>
+						<phase>install</phase>
+						<goals>
+							<goal>run</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
 	</build>
-	<!-- Make sure that you changed the packaging to war -->
-	<packaging>jar</packaging>
+
 
 </project>

@@ -1,6 +1,15 @@
-version: '2.2'
+version: '3.7'
 services:
-  jm-app:
-    image: app
+  spring-boot-example:
+    build:
+      context: .
     ports:
-      - "8080:8080"
+      target: 80
+      published: 8080
+      protocol: tcp
+      mode: host
+    container_name: byse-spring-boot-example
+    deploy:
+      mode: replicated
+      replicas: 2
+      endpoint_mode: vip

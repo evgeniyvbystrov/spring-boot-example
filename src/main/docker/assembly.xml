@@ -7,8 +7,9 @@
         <fileSet>
             <directory>${project.basedir}/target</directory>
             <outputDirectory>./</outputDirectory>
+            <fileMode>777</fileMode>
             <includes>
-                <include>spring-boot-0.0.1-SNAPSHOT.jar</include>
+                <include>*.jar</include>
             </includes>
         </fileSet>
     </fileSets>

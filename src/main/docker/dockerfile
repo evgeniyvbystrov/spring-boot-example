@@ -1,7 +1,6 @@
-#escape=`
 FROM openjdk:8-jre
 EXPOSE 8080/tcp
-#WORKDIR /app
+WORKDIR /app
 #VOLUME [/app]
-COPY maven/spring-boot-0.0.1-SNAPSHOT.jar spring-boot-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","./spring-boot-0.0.1-SNAPSHOT.jar"]
+COPY /maven ./app
+ENTRYPOINT ["java" , "-jar" , "./app/spring-boot-example-0.0.1-SNAPSHOT.jar"]
